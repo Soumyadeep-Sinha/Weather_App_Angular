@@ -1,0 +1,24 @@
+<div class="main-conatiner" style="height: 100vh;">
+  <div class="container">
+    <h1>Weather App</h1>
+    <form (submit)="getWeather()">
+      <label for="city">Enter City Name:</label>
+      <input class="form-control" [(ngModel)]="city" name="city" placeholder="e.g., New York" required>
+      <button type="submit" class="btn btn-success">Search</button>
+    </form>
+
+    <div *ngIf="weatherData" class="weather-info">
+        <img src="{{imageurl}}" alt="">
+      <h2>Weather in
+        {{ weatherData.name }},
+        {{ weatherData.sys.country }}
+      </h2>
+      <p>Temperature:
+        {{ weatherData.main.temp }}°C
+      </p>
+      <p>Weather:
+        {{ weatherData.weather[0].description }}
+      </p>
+    </div>
+  </div>
+</div>
